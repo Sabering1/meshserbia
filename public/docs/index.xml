@@ -254,7 +254,7 @@ role="tabpanel" tabindex="0" data-state="selected" &gt;&lt;div class="hx:overflo
 class="hextra-tabs-panel hx:rounded-sm hx:pt-6 hx:hidden hx:data-[state=selected]:block"
 id="tabs-panel-1"
 role="tabpanel"&gt;&lt;ul&gt;
-&lt;li&gt;Omogući &lt;strong&gt;downlink&lt;/strong&gt; i &lt;strong&gt;uplink&lt;/strong&gt; na &lt;code&gt;MediumFast&lt;/code&gt; kanalu&lt;/li&gt;
+&lt;li&gt;Napravi kanal sa imenom &lt;code&gt;Srbija&lt;/code&gt; i uključi &lt;strong&gt;downlink&lt;/strong&gt; i &lt;strong&gt;uplink&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -266,7 +266,7 @@ role="tabpanel"&gt;&lt;ul&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Channel Name&lt;/td&gt;
-&lt;td&gt;MediumFast&lt;/td&gt;
+&lt;td&gt;Srbija&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;PSK&lt;/td&gt;

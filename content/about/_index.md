@@ -18,6 +18,7 @@ Svako ko je pomogao, bilo da je postavio nod, podelio znanje, testirao uređaje,
 
 - **[nemanjan00](https://github.com/nemanjan00)** – održavanje MQTT servera i ostale infrastrukture
 - **[Sabering1](https://github.com/Sabering1)** – održavanje dokumentacije websita-a
+- **[Nenad](https://jugomesh.com/)** – održavanje mape websita-a
 
 *(Spisak nije konačan – svi koji doprinesu na bilo koji način su deo ove priče.)*
 

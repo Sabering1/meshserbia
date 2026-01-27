@@ -26,7 +26,7 @@ Isključi opciju **Ignore MQTT**, Uključi opciju **OK to MQTT**
 | TX enabled               | ✅ (uključeno)       | Uređaj može da emituje (ne samo da sluša)                                   |
 | TX power (dBm)           | 30                   | Snaga signala. 30 dBm je maksimum.                                           |
 | Frequency slot           | 1                    | Ne diraj                                                                     |
-| Override Duty Cycle      | ❌ (isključeno)      |  Prekoračuje pravila EU o dozvoljenom emitovanju                 |
+| Override Duty Cycle      | ❌ (isključeno)      | Prekoračuje pravila EU o dozvoljenom emitovanju                 |
 | Ignore incoming          | ❌ (isključeno)      | Ako uključiš, uređaj ignoriše sve dolazne poruke (ne preporučuje se)        |
 
   {{< /tab >}}
@@ -34,11 +34,11 @@ Isključi opciju **Ignore MQTT**, Uključi opciju **OK to MQTT**
   {{< tab >}}
 
 
-- Omogući **downlink** i **uplink** na `MediumFast` kanalu  
+- Napravi kanal sa imenom `Srbija` i uključi **downlink** i **uplink**
 
 | Parametar         | Vrednost     |
 |-------------------|--------------|
-| Channel Name      | MediumFast   |
+| Channel Name      | Srbija   |
 | PSK               | AQ==         |
 | Uplink Enabled    | ✅ Uključeno |
 | Downlink Enabled  | ✅ Uključeno |

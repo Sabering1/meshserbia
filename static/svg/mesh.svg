@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 800 320"
+     class="mesh-animation"
+     style="border-radius:12px; font-family: sans-serif;"> <defs>
+    <linearGradient id="mountGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9ca3af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4b5563;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    /* === DEFINICIJE BOJA I VARIJABLI === */
+    :root {
+      /* Removed --bg-gradient as it's no longer used */
+      --text-color: #555555;
+      --text-shadow: 0 1px 2px white;
+      --shadow-color: rgba(0,0,0,0.05);
+      
+      --phone-fill: #ffffff;
+      --phone-stroke: #333333;
+      --screen-fill: #eff6ff;
+      
+      --legend-bg: #ffffff;
+      --legend-stroke: #dddddd;
+      
+      --bt: #007bff;
+      --lora: #28a745;
+      
+      --cycle-dur: 8s;
+      --travel-time: 1.5s;
+    }
+
+    /* DARK mode settings now only change element colors, not the background */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-color: #e2e8f0; 
+        --text-shadow: none; 
+        --shadow-color: rgba(0,0,0,0.5);
+        
+        --phone-fill: #2d3748; 
+        --phone-stroke: #718096; 
+        --screen-fill: #1a202c; 
+        
+        --legend-bg: #2d3748;
+        --legend-stroke: #4a5568;
+      }
+      .cloud, .cloud-sm { opacity: 0.3 !important; }
+    }
+
+    /* ... Remaining styles stay the same ... */
+    .label { 
+      font-size: 14px; 
+      fill: var(--text-color); 
+      text-anchor: middle; 
+      font-weight: 600; 
+      text-shadow: var(--text-shadow); 
+      transition: fill 0.3s ease;
+    }
+    
+    .signal-base { fill: none; stroke-linecap: round; stroke-width: 3; opacity: 0.15; }
+    .signal-pulse {
+      fill: none; stroke-linecap: round; stroke-width: 4;
+      stroke-dasharray: 1000; stroke-dashoffset: 1000;
+      animation: flow var(--cycle-dur) linear infinite;
+    }
+    .bt { stroke: var(--bt); }
+    .lora { stroke: var(--lora); }
+
+    .t1 { animation-delay: 0s; }
+    .t2 { animation-delay: var(--travel-time); }
+    .t3 { animation-delay: calc(var(--travel-time) * 2 + 0.5s); }
+    .t4 { animation-delay: calc(var(--travel-time) * 3 + 0.5s); }
+
+    @keyframes flow {
+      0% { stroke-dashoffset: 1000; opacity: 0; }
+      5% { opacity: 1; }
+      15% { stroke-dashoffset: 0; opacity: 1; }
+      20% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .broadcast-ring {
+      fill: none; stroke: var(--lora); stroke-width: 2; opacity: 0;
+      transform-origin: center; transform-box: fill-box;
+      animation: ripple var(--cycle-dur) ease-out infinite;
+      animation-delay: calc(var(--travel-time) * 2);
+    }
+    @keyframes ripple {
+      0% { transform: scale(0.5); opacity: 0; }
+      5% { opacity: 1; }
+      20% { transform: scale(2.5); opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .cloud { fill: #fff; opacity: 0.8; animation: floatCloud 20s linear infinite; }
+    .cloud-sm { animation-duration: 35s; opacity: 0.6; }
+    
+    @keyframes floatCloud {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(50px); }
+      100% { transform: translateX(0); }
+    }
+
+    .phone-body { fill: var(--phone-fill); stroke: var(--phone-stroke); stroke-width: 2; transition: all 0.3s ease; }
+    .screen { fill: var(--screen-fill); transition: fill 0.3s ease; }
+    .msg-bubble { fill: var(--bt); opacity: 0; }
+    
+    .msg-send { animation: msgOut var(--cycle-dur) ease-in-out infinite; }
+    @keyframes msgOut {
+      0% { opacity: 0; transform: translateY(10px); }
+      5%, 20% { opacity: 1; transform: translateY(0); }
+      25%, 100% { opacity: 0; }
+    }
+
+    .msg-receive { animation: msgIn var(--cycle-dur) ease-in-out infinite; animation-delay: calc(var(--travel-time) * 4 + 0.1s); }
+    @keyframes msgIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      5%, 30% { opacity: 1; transform: translateY(0); }
+      35%, 100% { opacity: 0; }
+    }
+    
+    .shake { animation: vibrate 0.4s linear; animation-delay: calc(var(--travel-time) * 4 + 0.5s); }
+    @keyframes vibrate {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-3deg); }
+      75% { transform: rotate(3deg); }
+    }
+    
+    .legend-box { fill: var(--legend-bg); stroke: var(--legend-stroke); transition: all 0.3s ease; }
+  </style>
+
+  <g transform="translate(150, 60)">
+    <path d="M0 0 H50 A15 15 0 0 0 20 -10 A20 20 0 0 0 -10 0 Z" class="cloud"/>
+  </g>
+  <g transform="translate(600, 40)">
+    <path d="M0 0 H40 A10 10 0 0 0 20 -10 A15 15 0 0 0 -10 0 Z" class="cloud cloud-sm"/>
+  </g>
+
+  <g transform="translate(400, 150)">
+    <path d="M-140 170 L-20 -40 L20 -40 L140 170 Z" fill="url(#mountGrad)" stroke="none"/>
+    <path d="M-28 -25 L-20 -40 L20 -40 L28 -25 L10 -15 L-5 -25 L-15 -18 Z" fill="#fff" opacity="0.9"/>
+  </g>
+
+  <g transform="translate(120 160)">
+    <g>
+      <rect x="-30" y="-45" width="60" height="90" rx="10" class="phone-body"/>
+      <rect x="-24" y="-35" width="48" height="70" rx="4" class="screen"/>
+      <rect x="-18" y="-10" width="36" height="10" rx="5" class="msg-bubble msg-send"/>
+      <text x="0" y="65" class="label">Tvoj telefon</text>
+    </g>
+
+    <path d="M32 0 L98 0" class="signal-base bt"/>
+    <path d="M32 0 L98 0" class="signal-pulse bt t1"/>
+
+    <image href="https://flasher.meshtastic.org/img/devices/heltec-wireless-tracker.svg" x="100" y="-25" width="70" height="50" preserveAspectRatio="xMidYMid meet"/>
+    <text x="135" y="45" class="label">Tvoj mesh uređaj</text>
+  </g>
+
+  <g transform="translate(400 110)">
+    <circle cx="0" cy="0" r="30" class="broadcast-ring"/>
+    <circle cx="0" cy="0" r="30" class="broadcast-ring" style="animation-delay: calc(var(--travel-time) * 2 + 0.3s)"/>
+
+    <image href="https://flasher.meshtastic.org/img/devices/seeed_solar.svg" x="-30" y="-40" width="60" height="60" preserveAspectRatio="xMidYMid meet"/>
+    <text x="0" y="-45" class="label" fill="#28a745" style="font-weight:800; font-size:16px;">REPETITOR</text>
+  </g>
+
+  <g transform="translate(680 160)">
+    <image href="https://flasher.meshtastic.org/img/devices/wio_tracker_l1_case.svg" x="-160" y="-25" width="70" height="50" preserveAspectRatio="xMidYMid meet"/>
+    <text x="-125" y="45" class="label">Njegov mesh uređaj</text>
+
+    <path d="M-100 0 L-32 0" class="signal-base bt"/>
+    <path d="M-100 0 L-32 0" class="signal-pulse bt t4"/>
+
+    <g class="shake">
+      <rect x="-30" y="-45" width="60" height="90" rx="10" class="phone-body"/>
+      <rect x="-24" y="-35" width="48" height="70" rx="4" class="screen"/>
+      <rect x="-18" y="-10" width="36" height="10" rx="5" class="msg-bubble msg-receive"/>
+      <text x="0" y="65" class="label">Prijatelj</text>
+    </g>
+  </g>
+
+  <path d="M255 140 Q300 110 370 110" class="signal-base lora"/>
+  <path d="M255 140 Q300 110 370 110" class="signal-pulse lora t2"/>
+
+  <path d="M430 110 Q500 110 545 145" class="signal-base lora"/>
+  <path d="M430 110 Q500 110 545 145" class="signal-pulse lora t3"/>
+
+  <g transform="translate(400, 290)">
+    <rect x="-110" y="-15" width="220" height="30" rx="15" class="legend-box"/> 
+    
+    <line x1="-40" y1="-5" x2="-70" y2="-5" class="bt" stroke-width="3" opacity="1"/>
+    <text x="-55" y="10" class="label" text-anchor="start" style="font-size:12px">Bluetooth</text>
+
+    <line x1="16" y1="-5" x2="95" y2="-5" class="lora" stroke-width="3" opacity="1"/>
+    <text x="55" y="10" class="label" text-anchor="start" style="font-size:12px">Meshtasic</text>
+  </g>
+
+</svg>

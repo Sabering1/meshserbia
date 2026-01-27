@@ -4,6 +4,8 @@ layout: hextra-home
 ---
 <meta charset="UTF-8">
 
+
+
 <style>
 :root{--accent:#06b6d4}
 
@@ -38,6 +40,8 @@ layout: hextra-home
 }
 </style>
 
+
+
 {{< hextra/hero-badge link="https://meshtastic.org/e/" >}}
   <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400 dot"></div>
   <span>Pridruži nam se na Medium_Fast kanalu</span>
@@ -45,21 +49,36 @@ layout: hextra-home
 {{< /hextra/hero-badge >}}
 
 
+<div style="display:flex; align-items:center; gap:2rem; margin-bottom:1rem;">
+  <div>
 <div class="hx:mt-4 hx:mb-4">
 {{< hextra/hero-headline >}}
-  <span class="hero-headline">Poveži se bez interneta&nbsp;<br class="hx:sm:block hx:hidden" />uz Meshtastic mrežu Srbije</span>
+  <span class="hero-headline">
+  Poveži se bez interneta uz Meshtastic mrežu Srbije
+</span>
+
 {{< /hextra/hero-headline >}}
 </div>
-
-<div class="hx:mb-6">
-{{< hextra/hero-subtitle >}}
-  Zajednica i uputstva za korišćenje Meshtastica na srpskom jeziku
-{{< /hextra/hero-subtitle >}}
+    <div class="hx:mb-2">
+      {{< hextra/hero-button text="Počni odmah" link="docs/introdukcija/" >}}
+    </div>
+  </div>
+<div style="
+  width:880px;
+  height:auto;
+  max-width:none;
+  margin-left:30px;
+  margin-bottom:-152px;
+  margin-right:-50px;
+  margin-top:-120px;
+  border-radius:24px;
+  overflow:hidden;
+">
+  {{< readfile file="static/svg/mesh.svg" >}}
+</div>
 </div>
 
-<div class="hx:mb-4">
-{{< hextra/hero-button text="Počni odmah" link="docs/introdukcija/" >}}
-</div>
+
 
 {{< hextra/feature-grid class="hx:gap-4 feature-grid" >}}
 
@@ -113,4 +132,5 @@ layout: hextra-home
   >}}
 
 {{< /hextra/feature-grid >}}
+
 

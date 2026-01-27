@@ -110,7 +110,7 @@ params:
   externalLinkDecoration: true
   banner:
     key: "announcement"
-    message: Pogledajte forum i pratite najnovija ažuriranja sa MeshSerbia mrežom!
+    message: "VAŽNO: Zbog zagušenja mreže, pređite na novi kanal `Srbija` radi stabilne komunikacije"
   analytics:
     umami:
       serverURL: "https://telemetrija.sabering.xyz"
