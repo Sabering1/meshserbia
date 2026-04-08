@@ -1,0 +1,34 @@
+name: Build & Publish Hugo Docker
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.160.0"  # promeni ako koristiš drugu verziju
+
+      - name: Build Hugo site
+        run: hugo
+
+      - name: Build Docker image
+        run: docker build -t ghcr.io/${{ github.repository_owner }}/meshserbia:latest .
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Docker image
+        run: docker push ghcr.io/${{ github.repository_owner }}/meshserbia:latest
